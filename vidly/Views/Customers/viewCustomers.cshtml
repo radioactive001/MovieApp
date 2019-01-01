@@ -1,0 +1,30 @@
+﻿@model IEnumerable<vidly.Models.Customer>
+
+<h2>Customers</h2>
+
+    @if(!Model.Any())
+    {
+        <p>There is not currnet customer</p>
+    }
+
+
+
+
+<table id="customers" class="table table-bordered table-hover">
+            <tr>
+                <th>Customer</th>
+                <th>Membership Type</th>
+            </tr>
+
+            @foreach (var customer in Model)
+            {
+            <tr>
+                <td>@Html.ActionLink(customer.Name , "Edit" , "Customers" ,
+                   new { id = customer.Id},null )</td>
+                <td>@customer.MembershipType.Name</td>
+            </tr>
+
+            }
+
+
+        </table>
