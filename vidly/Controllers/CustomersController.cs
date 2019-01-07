@@ -70,7 +70,6 @@ namespace vidly.Controllers
         public ActionResult ViewCustomers()
         {
            // var customers = _context.Customers.Include(c => c.MembershipType).ToList();
-
             return View("ViewCustomers");
         }
 
