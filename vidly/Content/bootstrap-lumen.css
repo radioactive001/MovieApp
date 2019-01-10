@@ -1417,13 +1417,13 @@ textarea {
 }
 
 a {
-    color: #eb6864;
+    color: #FF4C19;
     text-decoration: none;
 }
 
     a:hover,
     a:focus {
-        color: #e22620;
+        color: #FF3800;
         text-decoration: underline;
     }
 
@@ -3245,7 +3245,7 @@ output {
 }
 
     .form-control:focus {
-        border-color: #66afe9;
+        border-color: #00E3A0;
         outline: 0;
         box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075), 0 0 8px rgba(102, 175, 233, 0.6);
     }
@@ -3801,30 +3801,30 @@ fieldset[disabled] a.btn {
 
 .btn-default {
     color: #ffffff;
-    background-color: #999999;
-    border-color: #999999;
+    background-color: #00C289;
+    border-color: #00C289;
 }
 
     .btn-default:focus,
     .btn-default.focus {
         color: #ffffff;
-        background-color: #808080;
-        border-color: #595959;
+        background-color: #00E3A0;
+        border-color: #00E3A0;
     }
 
     .btn-default:hover {
         color: #ffffff;
-        background-color: #808080;
-        border-color: #7a7a7a;
+        background-color: #00E3A0;
+        border-color: #00E3A0;
     }
 
     .btn-default:active,
     .btn-default.active,
     .open > .dropdown-toggle.btn-default {
         color: #ffffff;
-        background-color: #808080;
+        background-color: #00E3A0;
         background-image: none;
-        border-color: #7a7a7a;
+        border-color: #00E3A0;
     }
 
         .btn-default:active:hover,
@@ -3837,8 +3837,8 @@ fieldset[disabled] a.btn {
         .btn-default.active.focus,
         .open > .dropdown-toggle.btn-default.focus {
             color: #ffffff;
-            background-color: #6e6e6e;
-            border-color: #595959;
+            background-color: #00E3A0;
+            border-color: #00E3A0;
         }
 
     .btn-default.disabled:hover,
@@ -3861,30 +3861,30 @@ fieldset[disabled] a.btn {
 
 .btn-primary {
     color: #ffffff;
-    background-color: #eb6864;
-    border-color: #eb6864;
+    background-color: #00C289;
+    border-color: #00C289;
 }
 
     .btn-primary:focus,
     .btn-primary.focus {
         color: #ffffff;
-        background-color: #e53c37;
-        border-color: #b81c18;
+        background-color: #009C6E;
+        border-color: #00855E;
     }
 
     .btn-primary:hover {
         color: #ffffff;
-        background-color: #e53c37;
-        border-color: #e4332e;
+        background-color: #00E3A0;
+        border-color: #00D495;
     }
 
     .btn-primary:active,
     .btn-primary.active,
     .open > .dropdown-toggle.btn-primary {
         color: #ffffff;
-        background-color: #e53c37;
+        background-color: #009C6E;
         background-image: none;
-        border-color: #e4332e;
+        border-color: #00855E;
     }
 
         .btn-primary:active:hover,
@@ -3897,8 +3897,8 @@ fieldset[disabled] a.btn {
         .btn-primary.active.focus,
         .open > .dropdown-toggle.btn-primary.focus {
             color: #ffffff;
-            background-color: #dc221c;
-            border-color: #b81c18;
+            background-color: #009C6E;
+            border-color: #00855E;
         }
 
     .btn-primary.disabled:hover,
@@ -5564,8 +5564,8 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
     }
 
 .navbar-inverse {
-    background-color: #eb6864;
-    border-color: #e53c37;
+    background-color: #FF5119;
+    border-color: #FF3D00;
 }
 
     .navbar-inverse .navbar-brand {
@@ -5575,7 +5575,7 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
         .navbar-inverse .navbar-brand:hover,
         .navbar-inverse .navbar-brand:focus {
             color: #ffffff;
-            background-color: #e74b47;
+            background-color: #FF3D00;
         }
 
     .navbar-inverse .navbar-text {
@@ -5589,7 +5589,7 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
         .navbar-inverse .navbar-nav > li > a:hover,
         .navbar-inverse .navbar-nav > li > a:focus {
             color: #ffffff;
-            background-color: #e74b47;
+            background-color: #FF3D00;
         }
 
     .navbar-inverse .navbar-nav > .active > a,
@@ -6005,11 +6005,10 @@ a.badge:focus {
 }
 
 .jumbotron {
-    padding-top: 30px;
     padding-bottom: 30px;
-    margin-bottom: 30px;
+    margin-bottom: 50px;
     color: inherit;
-    background-color: #eeeeee;
+    background-color: #99d0ea42;
 }
 
     .jumbotron h1,

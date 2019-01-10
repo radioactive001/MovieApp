@@ -48,15 +48,19 @@ namespace vidly.Controllers
                 };
                 return View("MovieForm" , viewModel);
             }
-            if (movie.Id==0)
+
+            if (movie.Id == 0)
+            {
+                movie.NumberAvailable = movie.NumberInStock;
                 _context.Movies.Add(movie);
+            }
             else
             {
                 var movieInDb = _context.Movies.Single(c => c.Id == movie.Id);
                 movieInDb.Name = movie.Name;
                 movieInDb.GenreId = movie.GenreId;
                 movieInDb.ReleaseDate = movie.ReleaseDate;
-                movieInDb.DateAddedToDatabase = movie.DateAddedToDatabase;
+                movieInDb.DateAddedToDatabase = DateTime.Now;
                 movieInDb.NumberInStock = movie.NumberInStock;
 
             }
