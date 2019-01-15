@@ -1,8 +1,11 @@
 ﻿@model IEnumerable<vidly.Models.Movie>
+@{
+    ViewBag.Title ="Movies";
+}
 
 <h2>Movies</h2>
 
-    <p>@Html.ActionLink("New Movie", "New", "Movies", null, new { @class = "btn btn-primary" })</p>
+<p>@Html.ActionLink("New Movie", "New", "Movies", null, new { @class = "btn btn-primary" })</p>
 
 <table id="movies" class="table table-bordered table-hover">
     <thead>
@@ -12,9 +15,8 @@
             <th>Delete Movie</th>
         </tr>
     </thead>
-    
-    <tbody>
-    </tbody>
+
+    <tbody></tbody>
 
 </table>
 
@@ -25,30 +27,30 @@
             var table = $("#movies").DataTable({
                 ajax: {
                     url: "/api/movies",
-                    dataSrc:""
+                    dataSrc: ""
                 },
                 columns: [
                     {
                         data: "name",
-                        render: function(data, type, movie) {
+                        render: function (data, type, movie) {
                             return "<a href='/movies/edit/" + movie.id + "'>" + movie.name + "</a>";
                         }
                     },
                     {
-                        data:"genre.name"
+                        data: "genre.name"
                     },
                     {
                         data: "id",
-                        render: function(data) {
+                        render: function (data) {
                             return "<button class='btn-link js-delete' data-movie-id=" + data + ">Delete</button>";
                         }
                     }
                 ]
             });
 
-            $("#movies").on("click",".js-delete", function () {
+            $("#movies").on("click", ".js-delete", function () {
                 var button = $(this);
-                bootbox.confirm("Are you sure?", function(result) {
+                bootbox.confirm("Are you sure?", function (result) {
                     if (result) {
                         $.ajax({
                             url: "api/movies/" + button.attr("data-movie-id"),

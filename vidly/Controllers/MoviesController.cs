@@ -69,17 +69,17 @@ namespace vidly.Controllers
             return RedirectToAction("ViewMovies", "Movies");
         }
 
+
+
         [Route("movies")]
         public ActionResult viewMovies()
         {
             if (User.IsInRole(RoleName.canManageMovies))
                 return View("viewMovies");
             
-            return View("viewMoviesReadOnly");
-            
-            //var movie = _context.Movies.Include(m => m.Genre).ToList();
-
+            return View("viewMoviesReadOnly");           
         }
+
 
         //GET: (Movie/details)
         [Route("movies/details/{Id}")]
@@ -88,6 +88,8 @@ namespace vidly.Controllers
             var movie = _context.Movies.Include(m => m.Genre).SingleOrDefault(m => m.Id == Id);
             return View(movie);
         }
+
+
 
         [Authorize(Roles = RoleName.canManageMovies)]
         public ActionResult Edit(int id)

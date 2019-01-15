@@ -8,7 +8,7 @@ using vidly.Models;
 using vidly.ViewModels;
 
 namespace vidly.Controllers
-{
+{ 
     public class CustomersController : Controller
     {
         private ApplicationDbContext _context;
@@ -25,6 +25,7 @@ namespace vidly.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize(Roles = RoleName.canManageMovies)]
         public ActionResult Save(Customer customer)
         {
             if (!ModelState.IsValid)
@@ -52,7 +53,7 @@ namespace vidly.Controllers
             return RedirectToAction("ViewCustomers" , "Customers"); 
         }
 
-
+        [Authorize(Roles = RoleName.canManageMovies)]
         public ActionResult New()
         {
             var membershipTypes = _context.MembershipTypes.ToList();
@@ -69,8 +70,12 @@ namespace vidly.Controllers
         [Route("Customers")]
         public ActionResult ViewCustomers()
         {
-           // var customers = _context.Customers.Include(c => c.MembershipType).ToList();
-            return View("ViewCustomers");
+            if (User.IsInRole(RoleName.canManageMovies))
+            {
+                return View("ViewCustomers");
+            }
+
+            return View("ViewCustomersReadOnly");
         }
 
         //GET: Customer/details
@@ -82,6 +87,10 @@ namespace vidly.Controllers
             return View(customer);
         }
 
+
+
+
+        [Authorize(Roles = RoleName.canManageMovies)]
         public ActionResult Edit(int id)
         {
             var customer = _context.Customers.SingleOrDefault(c => c.Id == id);

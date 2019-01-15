@@ -1,6 +1,6 @@
 ﻿@model vidly.Models.Movie
 @{
-    ViewBag.Title = "movieDetails";
+    ViewBag.Title = "Movie Details";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
@@ -10,8 +10,8 @@
     <div class="col-md-4">
         <ul class="list-group">
             <li class="list-group-item">Genre :  @Model.Genre.Name</li>
-            <li class="list-group-item">Release Date :  @Model.ReleaseDate</li>
-            <li class="list-group-item">Date Added To Database :  @Model.DateAddedToDatabase</li>
+            <li class="list-group-item">Release Date :  @string.Format("{0:d MMM yyyy}", Model.ReleaseDate)</li>
+            <li class="list-group-item">Date Added To Database :  @string.Format("{0:d MMM yyyy}", Model.DateAddedToDatabase)</li>
             <li class="list-group-item">Number in stock :  @Model.NumberInStock</li>
             <li class="list-group-item">Number Available :  @Model.NumberAvailable</li>
         </ul>

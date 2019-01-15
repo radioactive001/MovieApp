@@ -2,20 +2,22 @@
 
 <h2>Customers</h2>
 
-<p>@Html.ActionLink("New Customer", "New","Customers",null, new {@class="btn btn-primary"})</p>
-
 
 <table id="customers" class="table table-bordered table-hover">
     <thead>
-        <tr>
-            <th>Customer</th>
-            <th>Membership Type</th>
-            <th>Delete Customer</th>
-        </tr>
+    <tr>
+        <th>Customer</th>
+        <th>Membership Type</th>
+    </tr>
     </thead>
     
     <tbody>
     </tbody>
+    
+
+    
+
+
 </table>
 
 @section scripts
@@ -31,18 +33,12 @@
                     {
                         data: "name",
                         render: function(data, type, customer) {
-                            return "<a href='/customers/edit/" + customer.id + "'>" + customer.name + "</a>";
+                            return "<a href='/customers/details/" + customer.id + "'>" + customer.name + "</a>";
                         }
                     },
                     {
                         data: "membershipType.name"
                     },
-                    {
-                        data: "id",
-                        render: function(data) {
-                            return "<button class='btn-link js-delete' data-customer-id=" + data + ">Delete</button>";
-                        }
-                    }
                 ]
             });
 
@@ -55,7 +51,7 @@
                             method: "DELETE",
                             success: function () {
                                 table.row(button.parents("tr")).remove().draw();
-                                toastr.success("Removed the customer");
+                                //button.parents("tr").remove();
                             }
                         });
                     }

@@ -1,0 +1,68 @@
+﻿@model dynamic
+
+@{
+    ViewBag.Title = "Rentals";
+}
+
+<h2>Rentals</h2>
+
+<p>@Html.ActionLink("New Rental","New","Rentals",null,new{@class="btn btn-primary"})</p>
+
+<table id="rental" class="table table-bordered table-hover">
+    <thead>
+    <tr>
+        <td>Customer Name</td>
+        <td>Movie Name</td>
+        <td>Return Rental</td>
+    </tr>
+    </thead>
+    
+    <tbody>
+
+    </tbody>
+</table>
+
+@section scripts
+{
+    <script>
+        $(document).ready(function() {
+            var table = $('#rental').DataTable({
+                ajax: {
+                    url: "/api/rentals",
+                    dataSrc: ""
+                },
+                columns: [
+                    {
+                        data: "customer.name"
+                    },
+                    {
+                        data: "movie.name"
+                    },
+                    {
+                        data: "id",
+                        render: function(data) {
+                            return "<button class='btn-link js-return' data-rental-id=" + data + ">Return Rental</button>";
+                        }
+                    }
+                ]
+            });
+
+            $("#rental").on("click", ".js-return", function () {
+                var button = $(this);
+                var id = button.attr("data-rental-id");
+                bootbox.confirm("Return the rental?", function (result) {
+                    if (result) {
+                        $.ajax({
+                            url: "/api/rentals/" + id,
+                            method: "delete",
+                            success: function () {
+                                toastr.success("Movies Returned")
+                                table.row(button.parents("tr")).remove().draw();
+                            }
+                        });
+                    }
+                });
+            });
+        })
+    </script>
+}

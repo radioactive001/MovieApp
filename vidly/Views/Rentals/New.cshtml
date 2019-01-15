@@ -17,7 +17,7 @@
     <div class="form-group">
         <label>Movie</label>
         <div class="tt-container">
-            <input id="movie" name="movie" data-rule-validMovie="true" required type="text" value="" class="form-control" />
+            <input id="movie" name="movie" data-rule-validMovie="true" type="text" value="" class="form-control" />
         </div>
     </div>
     <div class="row">
@@ -99,7 +99,7 @@
                         })
                         .done(function () {
                             toastr.success("Rented Selected Movies");
-                            $('#cutomer').typeahead("val", "");
+                            $('#customer').typeahead("val", "");
                             $('#movie').typeahead("val", "");
                             $('#movies').empty();
 

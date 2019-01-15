@@ -3,9 +3,15 @@
     ViewBag.Title = "CustomerDetailsView";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
+
 <h3>@Model.Name</h3>
-<ul>
-    <li>Membership Type : @Model.MembershipType.Name</li>
-    <li>Birth Date : @Model.BirthDate</li>
-</ul>
+
+<div class="row">
+    <div class="col-md-4">
+        <ul class="list-group">
+            <li class="list-group-item">Membership Type : @Model.MembershipType.Name</li>
+            <li class="list-group-item">Birth Day : @string.Format("{0:d MMM yyyy}", Model.BirthDate)</li>
+        </ul>
+    </div>
+</div>
 
